@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>LowPolly Flight Sim — Dune Edition + Improvements</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="loading"><div>ЗАГРУЗКА МИРА...</div><div class="bar"><div class="bar-fill" id="load-bar"></div></div><div id="load-text" style="margin-top:10px;font-size:12px;"></div></div>
+<div id="world-select" class="screen" style="display:none"><h1>🌍 ВЫБОР МИРА</h1><div class="subtitle">Seed в настройках вернёт похожий мир</div><div class="grid w3" id="world-grid"></div></div>
+<div id="aircraft-select" class="screen" style="display:none"><h1> ВЫБОР ТРАНСПОРТА</h1><div class="subtitle" id="air-sub"></div><div class="grid w7" id="aircraft-grid"></div></div>
+<div id="hud" style="display:none">
+<div class="row"><span class="label">МИР:</span><span id="world-name">—</span></div>
+<div class="row"><span class="label">ТРАНСПОРТ:</span><span id="plane-name">—</span></div>
+<div class="row"><span class="label">РЕЖИМ:</span><span id="mode">ПИЛОТ</span></div>
+<div class="row"><span class="label">ВЫСОТА:</span><span id="alt">0 м</span></div>
+<div class="row"><span class="label">СКОРОСТЬ:</span><span id="spd">0 км/ч</span></div>
+<div class="row"><span class="label">ВЕТЕР:</span><span id="wind">0 м/с</span></div>
+<div class="row"><span class="label">ГАЗ:</span><span id="thr">50%</span></div>
+<div class="row"><span class="label">ШАССИ:</span><span id="gear">▼</span></div>
+<div class="row"><span class="label">ЗАКРЫЛКИ:</span><span id="flaps">0%</span></div>
+<div class="row"><span class="label">ВРЕМЯ:</span><span id="time">12:00</span></div>
+<div class="row"><span class="label">ПОГОДА:</span><span id="wx">ЯСНО</span></div>
+<div class="row"><span class="label">ЧАНКИ:</span><span id="chunks">0</span></div>
+<div class="row"><span class="label">FPS/CALLS:</span><span id="perf">0/0</span></div>
+<div class="row"><span class="label">ЗДОРОВЬЕ:</span><span id="health">100%</span></div>
+</div>
+<div id="health-bar" style="display:none"><div id="health-fill"></div></div>
+<div id="weather-panel" style="display:none">
+<button data-wx="clear" class="active">☀️ Ясно</button><button data-wx="rain">🌧️ Дождь</button>
+<button data-wx="storm">⛈️ Гроза</button><button data-wx="snow">❄️ Снег</button>
+<button data-wx="sandstorm">🌪️ Песчаная буря</button>
+<button id="cycle-btn">🔄 Цикл</button><button id="settings-btn">⚙ Настройки</button>
+</div>
+<div id="settings-panel"><div class="sp-title">⚙ НАСТРОЙКИ</div><div id="settings-rows"></div></div>
+<div id="controls-help" style="display:none"></div>
+<div id="crosshair" style="display:none"></div>
+<div id="worm-warning">⚠️ ЧЕРВЬ!</div>
+<div id="crash-screen"><h1>КРУШЕНИЕ</h1><div id="crash-reason"></div><button onclick="location.reload()">Заново</button></div>
+<details id="test-panel"><summary>🧪 ТЕСТЫ (скрыто)</summary><div id="test-results"></div></details>
+<div id="minimap" style="display:none"><canvas id="minimap-canvas" width="150" height="150"></canvas></div>
+<div id="radar" style="display:none"><canvas id="radar-canvas" width="120" height="120"></canvas></div>
+<div id="touch-ui"><div class="stick-zone" id="zone-l"></div><div class="stick-zone" id="zone-r"></div>
+<div id="tbtns"><div class="tbtn" id="tb-v">V</div><div class="tbtn" id="tb-g">G</div><div class="tbtn" id="tb-f">F</div><div class="tbtn" id="tb-r">R</div></div></div>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.158.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.158.0/examples/jsm/"}}</script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
